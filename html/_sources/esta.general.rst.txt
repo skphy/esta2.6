@@ -12,14 +12,6 @@ esta.general.aadhaar module
    :undoc-members:
    :show-inheritance:
 
-esta.general.aadhaar0 module
-----------------------------
-
-.. automodule:: esta.general.aadhaar0
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 esta.general.add\_const\_to\_dict module
 ----------------------------------------
 

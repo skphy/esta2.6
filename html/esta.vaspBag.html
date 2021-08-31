@@ -261,6 +261,50 @@
 </dd></dl>
 
 </section>
+<section id="module-esta.vaspBag.band_gap">
+<span id="esta-vaspbag-band-gap-module"></span><h2>esta.vaspBag.band_gap module<a class="headerlink" href="#module-esta.vaspBag.band_gap" title="Permalink to this headline">¶</a></h2>
+<p>Finding of:</p>
+<blockquote>
+<div><p>band gap from the OUTCAR file or EIGENVAL file
+VBM or HOMO
+CBM or LUMO
+Fermi energy
+no. of kpts
+no. of bands
+no. of electrons
+spin polarised calculation or not?</p>
+</div></blockquote>
+<p>Note:</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>band gap nature: the kpoints corresponding to VBM and CBm are found</p>
+<blockquote>
+<div><dl>
+<dt>WARNING: dealing with metallic cases – experimental</dt><dd><blockquote>
+<div><p>Magnetic systems/SOC—todo</p>
+</div></blockquote>
+<p>author: skumar
+email: <a class="reference external" href="mailto:sonukumar&#46;physics&#37;&#52;&#48;gmail&#46;com">sonukumar<span>&#46;</span>physics<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="esta.vaspBag.band_gap.find_VBMin_CBMax">
+<span class="sig-prename descclassname"><span class="pre">esta.vaspBag.band_gap.</span></span><span class="sig-name descname"><span class="pre">find_VBMin_CBMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ispin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nkpts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbands</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nelectron</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/vaspBag/band_gap.html#find_VBMin_CBMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.vaspBag.band_gap.find_VBMin_CBMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>find high occupied level = VBMax
+and
+find lowest unoccupied level = CBMin</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esta.vaspBag.band_gap.get_bandgap_from_eigenval">
+<span class="sig-prename descclassname"><span class="pre">esta.vaspBag.band_gap.</span></span><span class="sig-name descname"><span class="pre">get_bandgap_from_eigenval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/vaspBag/band_gap.html#get_bandgap_from_eigenval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.vaspBag.band_gap.get_bandgap_from_eigenval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esta.vaspBag.band_gap.get_bandgap_from_outcar">
+<span class="sig-prename descclassname"><span class="pre">esta.vaspBag.band_gap.</span></span><span class="sig-name descname"><span class="pre">get_bandgap_from_outcar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/vaspBag/band_gap.html#get_bandgap_from_outcar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.vaspBag.band_gap.get_bandgap_from_outcar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="module-esta.vaspBag">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-esta.vaspBag" title="Permalink to this headline">¶</a></h2>
 </section>

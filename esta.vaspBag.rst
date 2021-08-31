@@ -22,6 +22,14 @@ esta.vaspBag.add\_vacuum\_to\_unit\_cell module
    :undoc-members:
    :show-inheritance:
 
+esta.vaspBag.band\_gap module
+-----------------------------
+
+.. automodule:: esta.vaspBag.band_gap
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
