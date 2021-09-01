@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. image:: esta_logo2.6.0_cropped.png
+.. image:: esta_logo_general1_1.png
    :height: 450 px
    :width: 903 px
    :scale: 30 %
