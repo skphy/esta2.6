@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>esta.grrmBag.write_xyz &mdash; EStA 2.6.0 documentation</title>
+  <title>esta.grrmBag.write_xyz0 &mdash; EStA 2.6.0 documentation</title>
   
 
   
@@ -157,7 +157,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>esta.grrmBag.write_xyz</li>
+      <li>esta.grrmBag.write_xyz0</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,7 +172,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for esta.grrmBag.write_xyz</h1><div class="highlight"><pre>
+  <h1>Source code for esta.grrmBag.write_xyz0</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># coding: utf-8</span>
 
@@ -182,86 +182,63 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">module for writing the atomic data in the xyz format in </span>
-<span class="sd">a single file or in different files.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># def get_all_xyz_in_a_file(pos, label, prefix_ofile=None, comment = None):    </span>
-<div class="viewcode-block" id="get_all_xyz_in_a_file"><a class="viewcode-back" href="../../../file4.html#esta.grrmBag.write_xyz.get_all_xyz_in_a_file">[docs]</a><span class="k">def</span> <span class="nf">get_all_xyz_in_a_file</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="n">prefix_ofile</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>    
+<div class="viewcode-block" id="get_all_xyz_in_a_file"><a class="viewcode-back" href="../../../file4.html#esta.grrmBag.write_xyz0.get_all_xyz_in_a_file">[docs]</a><span class="k">def</span> <span class="nf">get_all_xyz_in_a_file</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">prefix_ofile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>    
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    get all xyz files in a single file ...</span>
 
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    pos : rank 2 array </span>
-<span class="sd">        arry of atomic positions, shape(natoms, 3)</span>
-<span class="sd">    label : list of strings </span>
-<span class="sd">        list of string containing atomic symbols</span>
-<span class="sd">    energy : array</span>
-<span class="sd">        array of energies of all atomic strs</span>
-<span class="sd">    prefix_ofile : (optional) string </span>
-<span class="sd">        string for prefixing the name of the output file</span>
-<span class="sd">    comment : (optional) logical </span>
-<span class="sd">        logical (True/False) for adding commnet in commnet line of the xyz file</span>
+<span class="sd">    input:</span>
+<span class="sd">    ------</span>
+<span class="sd">        pos: rank 2 array of atomic positions, shape(natoms, 3)</span>
+<span class="sd">        label: list of strings containing atomic symbols</span>
+<span class="sd">        prefix_ofile: (optional) string for prefixing the name of the output file</span>
+<span class="sd">        comment: (optional) logical (True/False) for adding commnet in commnet line of the xyz file</span>
 <span class="sd">        </span>
-<span class="sd">    Returns</span>
+<span class="sd">    output:</span>
 <span class="sd">    -------</span>
-<span class="sd">    outfile :  str </span>
-<span class="sd">        write data in a single xyz file specified by name `outfile`</span>
-<span class="sd">        here outfile  =  prefix+&quot;_&quot;+&#39;all_&#39;+&#39;.xyz&#39; </span>
+<span class="sd">        `outfile`: write data in a single xyz file specified by name `outfile`</span>
+<span class="sd">         here outfile  =  prefix+&quot;_&quot;+&#39;all_&#39;+&#39;.xyz&#39; </span>
 <span class="sd">    &#39;&#39;&#39;</span>
+    
     <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-    <span class="kn">import</span> <span class="nn">esta.measure.conversion_factors</span> <span class="k">as</span> <span class="nn">cf</span>
-    
     <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-    <span class="n">fac</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">har2kjmolii</span>
-    
-    <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">lenergy</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#False</span>
-        <span class="c1"># energy relative to the initial structure in kJ/mol</span>
-        <span class="n">enrgy</span> <span class="o">=</span> <span class="p">(</span><span class="n">energy</span><span class="o">-</span><span class="n">energy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">fac</span>
     
     
-    <span class="k">if</span> <span class="n">prefix_ofile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">prefix_ofile</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;allxyz&#39;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix_ofile</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;prefix of output file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix_ofile</span><span class="p">))</span>   
     <span class="c1">#prefix = (self.filename.split(&#39;.&#39;))[0]</span>
-    <span class="k">if</span> <span class="n">comment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">comment</span> <span class="o">=</span> <span class="kc">False</span>
+    
+
 
     <span class="c1">#pos, label = self.get_all_atomic_positions_from_EQ_list()[0], self.get_all_atomic_positions_from_EQ_list()[1]</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File&#39;</span><span class="o">+</span><span class="s1">&#39;-xyz-&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="s1">&#39;all&#39;</span><span class="o">+</span><span class="s1">&#39;.xyz&#39;</span>    
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="c1">#for ipos in range(np.shape(pos)[0]):</span>
-        <span class="k">for</span> <span class="n">icount</span><span class="p">,</span> <span class="n">ipos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">pos</span><span class="p">)[</span><span class="mi">0</span><span class="p">])):</span>
+        <span class="k">for</span> <span class="n">ipos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">pos</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
             <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">            loop over all atomic postions; ipos</span>
 <span class="sd">            &#39;&#39;&#39;</span>
-            
+
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">ipos</span><span class="p">])))</span>
-<span class="c1">#             if comment is None:</span>
-<span class="c1">#                 f.write(&#39;\n&#39;+str(ipos)+&#39; xyz file created from grrm log on &#39;+str(today)+&#39; using esta&#39;)</span>
-<span class="c1">#             elif comment:</span>
-<span class="c1">#                 f.write(&#39;\n&#39;+str(ipos)+&#39; xyz file created from grrm log on &#39;+str(today)+&#39; using esta&#39;)</span>
-<span class="c1">#             else:</span>
-<span class="c1">#                 f.write(&#39;\n&#39;+str(ipos))</span>
-                
-            <span class="k">if</span> <span class="n">comment</span><span class="p">:</span> <span class="c1"># == True:</span>
-                <span class="k">if</span> <span class="n">lenergy</span><span class="p">:</span>
-                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="nb">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">icount</span><span class="p">),</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">{0:7.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">enrgy</span><span class="p">[</span><span class="n">icount</span><span class="p">])]</span> <span class="p">))</span><span class="o">+</span><span class="s2">&quot; kJ/mol esa&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="kn">import</span> <span class="nn">sys</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;energy variable must be passed as input!!&#39;</span><span class="p">)</span>
-                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>  
-                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># leave the comment line blank as some GUI software doesnt view xyz file</span>
-                <span class="c1">#f.write(&#39;\n&#39;+str(ipos)+&#39; &#39;+str(today)+&#39;: esta&#39;)</span>
+
+<span class="c1">#             if comment == None:</span>
+<span class="c1">#                 f.write(&#39;\nxyz file created from grrm EQ_list.log on &#39;+str(today)+&#39; using esta&#39;)</span>
+<span class="c1">#             elif comment == True:</span>
+<span class="c1">#                 f.write(&#39;\nxyz file created from grrm EQ_list.log on &#39;+str(today)+&#39; using esta&#39;)</span>
+<span class="c1">#             else:  # Comment == False</span>
+<span class="c1">#                 f.write(&#39;\n&#39;) # leave the comment line blank as some GUI software doesnt view xyz file</span>
+
+            <span class="k">if</span> <span class="n">comment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; xyz file created from grrm log on &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; using esta&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">comment</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; xyz file created from grrm log on &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; using esta&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ipos</span><span class="p">))</span>
                 
                 
                 
@@ -271,7 +248,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;writing all data (atomic structures:</span><span class="si">{}</span><span class="s1">) in xyz format in a single file&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">pos</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>    </div>
 
 
-<div class="viewcode-block" id="get_all_xyz_file"><a class="viewcode-back" href="../../../file4.html#esta.grrmBag.write_xyz.get_all_xyz_file">[docs]</a><span class="k">def</span> <span class="nf">get_all_xyz_file</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">prefix_ofile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>    
+<div class="viewcode-block" id="get_all_xyz_file"><a class="viewcode-back" href="../../../file4.html#esta.grrmBag.write_xyz0.get_all_xyz_file">[docs]</a><span class="k">def</span> <span class="nf">get_all_xyz_file</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">prefix_ofile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>    
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    get all xyz file given atomic positions and atomic labels: </span>
 

@@ -183,11 +183,98 @@
 <section id="module-esta.transitionState.associated_legendre">
 <span id="esta-transitionstate-associated-legendre-module"></span><h2>esta.transitionState.associated_legendre module<a class="headerlink" href="#module-esta.transitionState.associated_legendre" title="Permalink to this headline">¶</a></h2>
 </section>
-<section id="esta-transitionstate-neb-module">
-<h2>esta.transitionState.neb module<a class="headerlink" href="#esta-transitionstate-neb-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="esta-transitionstate-neb0-module">
-<h2>esta.transitionState.neb0 module<a class="headerlink" href="#esta-transitionstate-neb0-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-esta.transitionState.neb">
+<span id="esta-transitionstate-neb-module"></span><h2>esta.transitionState.neb module<a class="headerlink" href="#module-esta.transitionState.neb" title="Permalink to this headline">¶</a></h2>
+<p>finding the transition state using Neb class given initial and
+final atomic structures using</p>
+<ol class="arabic simple">
+<li><p>normal NEB.</p></li>
+<li><p>Climbing NEB.</p></li>
+<li><p>Automatic NEB methods  .. to be done.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We take N+1 images in the elastic band. The end point images are
+input relaxed structures (reactant and product as an example). The
+N-1 images are created or feed and after that these images are
+optimized to get converged elastic band.
+i.e.
+0  1  2  3 … i … N —&gt; N+1 images; 0 and N images are fixed</p>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">esta.transitionState.neb.</span></span><span class="sig-name descname"><span class="pre">Neb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/transitionState/neb.html#Neb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.transitionState.neb.Neb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class Neb: calculate the nedged force on all the images in the elastic band</p>
+<dl class="simple">
+<dt>nedged force = (true force/dft force )_perpendicular componet + (spring</dt><dd><p>force)_parallel component</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb.get_force_ci">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">get_force_ci</span></span><a class="headerlink" href="#esta.transitionState.neb.Neb.get_force_ci" title="Permalink to this definition">¶</a></dt>
+<dd><p>get force on the climbing image</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>force_ci = force_dft  - 2*  dot_product (force_dft_vector , tangent_vector) tangent_vector</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb.get_force_perpen">
+<span class="sig-name descname"><span class="pre">get_force_perpen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/transitionState/neb.html#Neb.get_force_perpen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.transitionState.neb.Neb.get_force_perpen" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the perpendicular force acting on each image excluding end points;</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>force_perpendicular = force_dft  - dot_product (force_dft , tangent_vector) tangent_vector</p>
+<p>force_dft is force obtained from dft or some model calculation!</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb.get_nudged_force">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">get_nudged_force</span></span><a class="headerlink" href="#esta.transitionState.neb.Neb.get_nudged_force" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb.get_spring_force_parallel">
+<span class="sig-name descname"><span class="pre">get_spring_force_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spring_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/transitionState/neb.html#Neb.get_spring_force_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.transitionState.neb.Neb.get_spring_force_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the spring force parallel to the tangent, given the self.atomic positions and
+spring_constant (optional)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.transitionState.neb.Neb.get_tangent">
+<span class="sig-name descname"><span class="pre">get_tangent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/transitionState/neb.html#Neb.get_tangent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.transitionState.neb.Neb.get_tangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>get an estimate of the tangent at each image along the elastic band</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Two ways to estimation:</p>
+<p>1) Graeme Henkelman, et al. OURNAL OF CHEMICAL PHYSICS VOLUME 113,
+NUMBER 22 8 DECEMBER 2000</p>
+<p>2) Graeme Henkelman and H Jonsson , JOURNAL OF CHEMICAL PHYSICS VOLUME
+113, NUMBER 22 8 DECEMBER 2000;
+note: improved estimate needs energy of each image present in position variable</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>energy</strong> (<em>array</em>) – array of energies (DFT or some other energy calculator) of length
+equal to the number of images in the elastic band
+(also need position and force —&gt; from self.position, self.force)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tangent</strong> – array of rank 3 with shape (n_images, natoms, 3); tangent array at each inbetween
+images to get perpendicular and parallel component of true/dft forces and spring forces
+Note: first and last tangents are kept zero and never used!!</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-esta.transitionState.potential_2D">
 <span id="esta-transitionstate-potential-2d-module"></span><h2>esta.transitionState.potential_2D module<a class="headerlink" href="#module-esta.transitionState.potential_2D" title="Permalink to this headline">¶</a></h2>

@@ -284,6 +284,14 @@ esta.general.manipulate\_adv module
    :undoc-members:
    :show-inheritance:
 
+esta.general.manipulate\_advv module
+------------------------------------
+
+.. automodule:: esta.general.manipulate_advv
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.general.metric\_tensor module
 ----------------------------------
 
@@ -344,6 +352,14 @@ esta.general.reciprocal\_lattice module
 ---------------------------------------
 
 .. automodule:: esta.general.reciprocal_lattice
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+esta.general.reverse\_array module
+----------------------------------
+
+.. automodule:: esta.general.reverse_array
    :members:
    :undoc-members:
    :show-inheritance:

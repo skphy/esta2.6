@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>esta.measure package &mdash; EStA 2.6.0 documentation</title>
+  <title>esta.pymatgenBag package &mdash; EStA 2.6.0 documentation</title>
   
 
   
@@ -156,13 +156,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>esta.measure package</li>
+      <li>esta.pymatgenBag package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/esta.measure.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/esta.pymatgenBag.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,73 +175,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="esta-measure-package">
-<h1>esta.measure package<a class="headerlink" href="#esta-measure-package" title="Permalink to this headline">¶</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-esta.measure.atomic_units">
-<span id="esta-measure-atomic-units-module"></span><h2>esta.measure.atomic_units module<a class="headerlink" href="#module-esta.measure.atomic_units" title="Permalink to this headline">¶</a></h2>
-<p>In electronic structure calculations, we generally employ “atomic units” (a.u.): here
-three basic units are the fundamental constants i.e. electronic charge,
-electron mass, and hbar (reduced Planck’s constatn).</p>
-<p>Here we do the conversion between atomic units (Hartree) and SI units,
-as well as conversion between Ryd atomic units and SI units.</p>
-<p>Generally atomic units means Hartree units, atomic  Rydberg units means Rydberg units,
-and natural units means natural units.</p>
-<p>Right now conversion between atomic units and Si units supported.</p>
-<p>For details see: From: <a class="reference external" href="http://physics.nist.gov/constants">http://physics.nist.gov/constants</a>
-Also see the pdf file in zot. for details.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>how it works:</p>
-<p>This module converts SI units to atomic units i.e. Hartree units (SI to Ryd is on
-the same line)!!</p>
-<p>e.g. how to convert 0.529 angstrom to au units?
-&gt;&gt;In [7]: import esta.measure.atomic_units as atu
-&gt;&gt;In [8]: atu.ao2au <a href="#id1"><span class="problematic" id="id2">*</span></a>.529e-10
-&gt;&gt;Out[8]: 0.9996651248084494</p>
-<p>e.g. convert 82nN force to au units:
-&gt;&gt;In [16]: atu.force2au * 82e-9
-&gt;&gt;Out[16]: 0.9953000213791756</p>
-</div>
-<p>author: skumar
-email : <a class="reference external" href="mailto:sonukumar&#46;physics&#37;&#52;&#48;gmail&#46;com">sonukumar<span>&#46;</span>physics<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-</section>
-<section id="module-esta.measure.conversion_factors">
-<span id="esta-measure-conversion-factors-module"></span><h2>esta.measure.conversion_factors module<a class="headerlink" href="#module-esta.measure.conversion_factors" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>library to get conversion factor to convert quantities from once to another</p></li>
-<li><p>get commanly use physical constants in physical and chemical sciences</p></li>
-</ol>
-<p>NOTE: ii —&gt; means –&gt; inverse</p>
-<dl>
-<dt>WARNING:  use scipy version &gt;=1.4.1</dt><dd><p>otherwise you get inaccurate constants after 6-7 decimal
-places</p>
-<blockquote>
-<div><p># with scipy version 1.1.0
-#bohr radius= 5.2917721067e-11 m ; less accurate
-#fac = cf.bohr2ang =0.529177210669 –&lt; – less accuaret and
-# as a result atoms pos and cell param are wrong after 6 dec     # places
-#In scipy version 1.4.1
-#bohr radiun = 5.29177210903e-11 m; is same as given
-# in nist data ; <a class="reference external" href="https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0">https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0</a>
-#Numerical value     5.291 772 109 03 x 10-11 m
-#fac = 0.529177210903
-# so take bohr2ang = 0.529177210903 if using lower version than required</p>
-</div></blockquote>
-</dd>
-</dl>
-<p>Author: S. Kumar,
-email:  <a class="reference external" href="mailto:sonukumar&#46;physics&#37;&#52;&#48;gmail&#46;com">sonukumar<span>&#46;</span>physics<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-<dl class="py function">
-<dt class="sig sig-object py" id="esta.measure.conversion_factors.double">
-<span class="sig-prename descclassname"><span class="pre">esta.measure.conversion_factors.</span></span><span class="sig-name descname"><span class="pre">double</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/measure/conversion_factors.html#double"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.measure.conversion_factors.double" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-esta.measure">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-esta.measure" title="Permalink to this headline">¶</a></h2>
+  <section id="esta-pymatgenbag-package">
+<h1>esta.pymatgenBag package<a class="headerlink" href="#esta-pymatgenbag-package" title="Permalink to this headline">¶</a></h1>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </section>
 </section>
 

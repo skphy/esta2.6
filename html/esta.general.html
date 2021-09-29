@@ -1242,6 +1242,125 @@ new ref pt, r’ = -(t-r) + r = 2*r - t —– right!! here earliet this pt was 
 </dd></dl>
 
 </section>
+<section id="module-esta.general.manipulate_advv">
+<span id="esta-general-manipulate-advv-module"></span><h2>esta.general.manipulate_advv module<a class="headerlink" href="#module-esta.general.manipulate_advv" title="Permalink to this headline">¶</a></h2>
+<p>class to mainipulation of atoms present in xyz file or poscar type files</p>
+<p>Author: skumar
+email: <a class="reference external" href="mailto:sonukumar&#46;physics&#37;&#52;&#48;gmail&#46;com">sonukumar<span>&#46;</span>physics<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="esta.general.manipulate_advv.AtomicStructure">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">esta.general.manipulate_advv.</span></span><span class="sig-name descname"><span class="pre">AtomicStructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atomic_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/manipulate_advv.html#AtomicStructure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.manipulate_advv.AtomicStructure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class to mainipulateatoms present in xyz file or poscar type files</p>
+<dl class="simple">
+<dt>e.g.:</dt><dd><ul class="simple">
+<li><p>delete atoms from poscar or xyzfile</p></li>
+<li><p>replace atoms by another type of atoms ….TODO  sk!!</p></li>
+<li><p>shift atoms about origin ..see shift.py</p></li>
+<li><p>shift atoms alogn a general direction .. see shift.py</p></li>
+<li></li>
+</ul>
+</dd>
+<dt>NOTE: there is shift.py file … add shift class in this file and then</dt><dd><p>use it as a superclass for the manipulate_structure class …TODO sk!!</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.general.manipulate_advv.AtomicStructure.delete_atoms">
+<span class="sig-name descname"><span class="pre">delete_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/manipulate_advv.html#AtomicStructure.delete_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.manipulate_advv.AtomicStructure.delete_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete atoms from atomic positions array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atomic_positions</strong> (<em>array</em>) – atomic positions in xyz file or poscar file</p></li>
+<li><p><strong>delete_list</strong> (<em>list</em>) – list of atoms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>atomic_position_new</strong> – new atomic positions after deletion of some atoms</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.general.manipulate_advv.AtomicStructure.freeze_atoms">
+<span class="sig-name descname"><span class="pre">freeze_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frozen_atm_indx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/manipulate_advv.html#AtomicStructure.freeze_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.manipulate_advv.AtomicStructure.freeze_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>freeze atoms from the xyz file</p>
+<blockquote>
+<div><dl class="simple">
+<dt>frozen_atm_indx: list of integers specifying the atom numbers to be fixed</dt><dd><p>, numbering starts from 1 … max of the no. of atoms</p>
+</dd>
+</dl>
+</div></blockquote>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple:</dt><dd><p>pos_frozen: array containing fixed atoms
+pos_not_frozen: arrary containing atoms not fixed</p>
+</dd>
+<dt>tuple:</dt><dd><p>frozen_atm_indx: list of integers specifying the atom numbers to be fixed
+not_frozen_atm_indx: list of integers specifying the atom numbers not to be fixed.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note: works only for rank 2 array of atomic position only // for rank 3 .. easy to implement!!</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.general.manipulate_advv.AtomicStructure.get_atm_indices_constraint">
+<span class="sig-name descname"><span class="pre">get_atm_indices_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frozen_atm_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_frozen_atm_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/manipulate_advv.html#AtomicStructure.get_atm_indices_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.manipulate_advv.AtomicStructure.get_atm_indices_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>frozen_atm_indices: list of integers specifying the atom numbers to be fixed; Numbering from 0 ..
+#natoms: total number of atoms in the xyz file or poscar type file</p>
+</div></blockquote>
+<blockquote>
+<div><p>not_frozen_atm_indices: list of intergers specifying the atoms numbers NOT to be fixed; Numbering from 0 ..</p>
+</div></blockquote>
+<p>NOTE: numbering of atoms MUST be from 1 …</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esta.general.manipulate_advv.AtomicStructure.invert_atoms">
+<span class="sig-name descname"><span class="pre">invert_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">misc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/manipulate_advv.html#AtomicStructure.invert_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.manipulate_advv.AtomicStructure.invert_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>invert atom from atomic positions (target arraay) array or from set of atomic positions
+in xyz PAth file</p>
+<blockquote>
+<div><dl class="simple">
+<dt>target_index or target_atoms: 1D-array of ints for indexing atoms to be inverted ; numbering starts</dt><dd><p>from 1</p>
+</dd>
+<dt>reference_index or  reference_atoms: 1D-array of intergers of atoms  wrt which invertion has to</dt><dd><p>be done</p>
+</dd>
+<dt>misc: tag to do some miscellaneous transformation … under testing …</dt><dd><p>here I am inverting the array by double the distance a normal inversion is done
+also, reference pt is moved along the inversion direction as well.</p>
+</dd>
+</dl>
+</div></blockquote>
+<blockquote>
+<div><dl class="simple">
+<dt>pos_with_inv: array of positions containing inverted atoms references by target_index</dt><dd><p>is misc is True, then reference atoms is also shifted by inversion operation</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>NOTE: doing inversion of t array wrt r point:</dt><dd><blockquote>
+<div><p>new t = t’ = r - (t-r) = 2* r - t</p>
+</div></blockquote>
+<dl>
+<dt>for misc tag: following inversion and shifting of reference pt done (using vector algebra)</dt><dd><p>new t = t’ = -(t-r)  + [ -(t-r)  ] + r = 3* r - 2 <a href="#id3"><span class="problematic" id="id4">*</span></a>t
+or new t = t’ = r + (r-t)  + (r-t)/2 = (5*r-3*t)/2  # added (r-t)/2 more distance vect</p>
+<p># …taking for now following ..
+or new t = t’ = r + (r-t)  + 2(r-t)/3 = (8*r-5*t)/3  # added 2(r-t)/3 more distance vect
+new ref pt, r’ = -(t-r) + r = 2*r - t —– right!! here earliet this pt was r</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-esta.general.metric_tensor">
 <span id="esta-general-metric-tensor-module"></span><h2>esta.general.metric_tensor module<a class="headerlink" href="#module-esta.general.metric_tensor" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -1501,6 +1620,16 @@ output: reciprocal space lattice vectors: b1, b2, b3</p>
 </dd></dl>
 
 </section>
+<section id="module-esta.general.reverse_array">
+<span id="esta-general-reverse-array-module"></span><h2>esta.general.reverse_array module<a class="headerlink" href="#module-esta.general.reverse_array" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="esta.general.reverse_array.reverse_array">
+<span class="sig-prename descclassname"><span class="pre">esta.general.reverse_array.</span></span><span class="sig-name descname"><span class="pre">reverse_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">icounter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/esta/general/reverse_array.html#reverse_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#esta.general.reverse_array.reverse_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>reverse the interger array i.e. save the elements in reverse order</p>
+<p>similary a real array can be reversed!!</p>
+</dd></dl>
+
+</section>
 <section id="module-esta.general.shift">
 <span id="esta-general-shift-module"></span><h2>esta.general.shift module<a class="headerlink" href="#module-esta.general.shift" title="Permalink to this headline">¶</a></h2>
 <p>method/function to shift atoms:
@@ -1702,21 +1831,21 @@ the simplest approach often taken is to treat all 3N
 degrees of freedom of the adsorbate harmonically since the adsorbate often
 has no real translational or rotational degrees of freedom.</p>
 <dl class="simple">
-<dt>U(T) = <a href="#id3"><span class="problematic" id="id4">E_</span></a>   ext{elec} + <a href="#id5"><span class="problematic" id="id6">E_</span></a>  ext{ZPE} +</dt><dd><p>sum_i^     ext{harm DOF}</p>
+<dt>U(T) = <a href="#id5"><span class="problematic" id="id6">E_</span></a>   ext{elec} + <a href="#id7"><span class="problematic" id="id8">E_</span></a>  ext{ZPE} +</dt><dd><p>sum_i^     ext{harm DOF}</p>
 </dd>
 </dl>
 </div></blockquote>
-<p>rac{epsilon_i}{e^{epsilon_i / <a href="#id7"><span class="problematic" id="id8">k_</span></a>       ext{B} T} - 1 }</p>
+<p>rac{epsilon_i}{e^{epsilon_i / <a href="#id9"><span class="problematic" id="id10">k_</span></a>       ext{B} T} - 1 }</p>
 <blockquote>
 <div><dl class="simple">
-<dt>S = <a href="#id9"><span class="problematic" id="id10">k_</span></a>      ext{B} sum_i^  ext{harm DOF}</dt><dd><p>left[</p>
+<dt>S = <a href="#id11"><span class="problematic" id="id12">k_</span></a>      ext{B} sum_i^  ext{harm DOF}</dt><dd><p>left[</p>
 </dd>
 </dl>
 </div></blockquote>
-<p>rac{epsilon_i}{<a href="#id11"><span class="problematic" id="id12">k_</span></a>      ext{B}Tleft(e^{epsilon_i/<a href="#id13"><span class="problematic" id="id14">k_</span></a>   ext{B}T}-1
+<p>rac{epsilon_i}{<a href="#id13"><span class="problematic" id="id14">k_</span></a>      ext{B}Tleft(e^{epsilon_i/<a href="#id15"><span class="problematic" id="id16">k_</span></a>   ext{B}T}-1
 ight)} -</p>
 <blockquote>
-<div><p>ln left( 1 - e^{-epsilon_i/<a href="#id15"><span class="problematic" id="id16">k_</span></a>    ext{B}T}</p>
+<div><p>ln left( 1 - e^{-epsilon_i/<a href="#id17"><span class="problematic" id="id18">k_</span></a>    ext{B}T}</p>
 </div></blockquote>
 <p>ight)
 ight]</p>

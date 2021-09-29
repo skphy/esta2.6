@@ -28,6 +28,14 @@ esta.grrmBag.get\_IRC\_path module
    :undoc-members:
    :show-inheritance:
 
+esta.grrmBag.get\_LUP module
+----------------------------
+
+.. automodule:: esta.grrmBag.get_LUP
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.grrmBag.get\_LUPINP module
 -------------------------------
 
@@ -100,6 +108,22 @@ esta.grrmBag.output\_grrm\_ITR\_adv1 module
    :undoc-members:
    :show-inheritance:
 
+esta.grrmBag.output\_grrm\_ITR\_adv2 module
+-------------------------------------------
+
+.. automodule:: esta.grrmBag.output_grrm_ITR_adv2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+esta.grrmBag.output\_grrm\_ITR\_adv3 module
+-------------------------------------------
+
+.. automodule:: esta.grrmBag.output_grrm_ITR_adv3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.grrmBag.output\_grrm\_PT module
 ------------------------------------
 
@@ -168,6 +192,14 @@ esta.grrmBag.write\_xyz module
 ------------------------------
 
 .. automodule:: esta.grrmBag.write_xyz
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+esta.grrmBag.write\_xyz0 module
+-------------------------------
+
+.. automodule:: esta.grrmBag.write_xyz0
    :members:
    :undoc-members:
    :show-inheritance:

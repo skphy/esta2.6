@@ -23,6 +23,7 @@ Subpackages
    esta.phonon
    esta.plot
    esta.pointGroup
+   esta.pymatgenBag
    esta.qeBag
    esta.siestaBag
    esta.spaceGroup
@@ -35,10 +36,10 @@ Subpackages
 Submodules
 ----------
 
-esta.bond\_length module
-------------------------
+esta.bonds module
+-----------------
 
-.. automodule:: esta.bond_length
+.. automodule:: esta.bonds
    :members:
    :undoc-members:
    :show-inheritance:
