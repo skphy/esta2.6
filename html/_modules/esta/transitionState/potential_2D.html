@@ -203,7 +203,8 @@
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inside get_potential_energy: &quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
     <span class="n">vxy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">))</span>
     
@@ -277,51 +278,51 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="c1"># In[41]:</span>
-
-
-<span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span> <span class="n">vxxyy</span><span class="p">)</span>  <span class="o">=</span> <span class="n">get_potential_energy</span><span class="p">()</span>
-
-<span class="c1"># print(&quot;now using mesh grid calculated pot energy data:&quot;)</span>
-<span class="c1"># print(&#39;xx 1 line: {}&#39;.format(xx[0,:]))</span>
-<span class="c1"># print(&#39;yy 1 line : {}&#39;.format(yy[:,0]))</span>
-<span class="c1"># print(&#39;vxxyy:  max --&gt;{} {}&#39;.format(np.max(vxxyy), np.argmax(vxxyy, axis=0)))</span>
-<span class="c1"># print(&#39;vxxyy:  max --&gt;{} {}&#39;.format(np.max(vxxyy), np.argmax(vxxyy, axis=1)))</span>
-
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">vxxyy</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;winter&#39;</span> <span class="p">)</span> <span class="c1">#&#39;spring&#39;) #&#39;copper&#39;) #&#39;RdGy&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1"># plt.contourf(X, Y, Z, 20, cmap=&#39;RdGy&#39;)</span>
-<span class="c1"># plt.colorbar();</span>
-
-
-<span class="c1"># # importing the required libraries</span>
-<span class="c1"># # from sklearn import datasets</span>
-<span class="c1"># import pandas as pd</span>
-<span class="c1"># import seaborn as sns</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># # imprt sns</span>
-<span class="c1"># sns.kdeplot(data=vxxyy) #, x=, y=yy[:])</span>
-<span class="c1"># plt.show()</span>
-
-
-<span class="c1"># In[18]:</span>
-
-
-
-
-
-<span class="c1"># In[ ]:</span>
-
-
-
-
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">## In[41]:</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#(x,y, v), (xx,yy, vxxyy)  = get_potential_energy()</span>
+<span class="c1">#</span>
+<span class="c1">## print(&quot;now using mesh grid calculated pot energy data:&quot;)</span>
+<span class="c1">## print(&#39;xx 1 line: {}&#39;.format(xx[0,:]))</span>
+<span class="c1">## print(&#39;yy 1 line : {}&#39;.format(yy[:,0]))</span>
+<span class="c1">## print(&#39;vxxyy:  max --&gt;{} {}&#39;.format(np.max(vxxyy), np.argmax(vxxyy, axis=0)))</span>
+<span class="c1">## print(&#39;vxxyy:  max --&gt;{} {}&#39;.format(np.max(vxxyy), np.argmax(vxxyy, axis=1)))</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#import matplotlib.pyplot as plt</span>
+<span class="c1">#</span>
+<span class="c1">#h = plt.contourf(xx, yy, vxxyy, 20, cmap=&#39;winter&#39; ) #&#39;spring&#39;) #&#39;copper&#39;) #&#39;RdGy&#39;)</span>
+<span class="c1">#plt.colorbar();</span>
+<span class="c1">#plt.axis(&#39;scaled&#39;)</span>
+<span class="c1">#plt.show()</span>
+<span class="c1">## plt.contourf(X, Y, Z, 20, cmap=&#39;RdGy&#39;)</span>
+<span class="c1">## plt.colorbar();</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">## # importing the required libraries</span>
+<span class="c1">## # from sklearn import datasets</span>
+<span class="c1">## import pandas as pd</span>
+<span class="c1">## import seaborn as sns</span>
+<span class="c1">## import matplotlib.pyplot as plt</span>
+<span class="c1">## # imprt sns</span>
+<span class="c1">## sns.kdeplot(data=vxxyy) #, x=, y=yy[:])</span>
+<span class="c1">## plt.show()</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">## In[18]:</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">## In[ ]:</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
 </pre></div>
 
            </div>
