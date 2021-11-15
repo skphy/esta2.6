@@ -57,12 +57,22 @@ Keyword related to author's research areas
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: EStA1:
 
    file1
    file2
    file3
+
+.. toctree::
+   :maxdepth: 4
+   :caption: EStA2:
+
    file4 
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Additional:
+
    file3a
  
 Indices and tables
