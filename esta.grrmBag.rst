@@ -84,6 +84,14 @@ esta.grrmBag.input\_grrm\_advv module
    :undoc-members:
    :show-inheritance:
 
+esta.grrmBag.input\_grrm\_advv0 module
+--------------------------------------
+
+.. automodule:: esta.grrmBag.input_grrm_advv0
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.grrmBag.output\_grrm module
 --------------------------------
 
@@ -120,6 +128,14 @@ esta.grrmBag.output\_grrm\_ITR\_adv3 module
 -------------------------------------------
 
 .. automodule:: esta.grrmBag.output_grrm_ITR_adv3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+esta.grrmBag.output\_grrm\_ITR\_adv4 module
+-------------------------------------------
+
+.. automodule:: esta.grrmBag.output_grrm_ITR_adv4
    :members:
    :undoc-members:
    :show-inheritance:
@@ -200,6 +216,14 @@ esta.grrmBag.write\_xyz0 module
 -------------------------------
 
 .. automodule:: esta.grrmBag.write_xyz0
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+esta.grrmBag.write\_xyz1 module
+-------------------------------
+
+.. automodule:: esta.grrmBag.write_xyz1
    :members:
    :undoc-members:
    :show-inheritance:

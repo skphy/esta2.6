@@ -76,6 +76,14 @@ esta.qeBag.gen\_qeinput\_adv module
    :undoc-members:
    :show-inheritance:
 
+esta.qeBag.gen\_qeinput\_adv0 module
+------------------------------------
+
+.. automodule:: esta.qeBag.gen_qeinput_adv0
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.qeBag.get\_bands\_kpts\_band\_gap\_adv3 module
 ---------------------------------------------------
 

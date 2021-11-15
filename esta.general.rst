@@ -412,6 +412,14 @@ esta.general.thermo module
    :undoc-members:
    :show-inheritance:
 
+esta.general.thermo2 module
+---------------------------
+
+.. automodule:: esta.general.thermo2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 esta.general.xyz module
 -----------------------
 
