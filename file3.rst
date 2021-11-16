@@ -52,6 +52,22 @@ GPR: Gaussian Process Regression
 
 GPR is an non-linear regession algorirm based on gaussian processes. For details see the classic book of `Rasmussen et al.`_ and the `gaussianprocess website`_.
 
+A simple and concise presentation of function space usage in gaussian processes shown in the figure below:
+
+.. figure:: GPprior_posterior.png
+   :width: 200px
+   :height: 75px
+   :scale: 400%
+   :alt: guassian process prior and posterior
+   :align: center
+   
+   Figure: Gaussian process prior and posterior. "Panel (a) shows three functions drawn at random from a GP prior;
+   the dots indicate values of y actually generated; the two other functions have (less
+   correctly) been drawn as lines by joining a large number of evaluated points. Panel (b)
+   shows three random functions drawn from the posterior, i.e. the prior conditioned on
+   the five noise free observations indicated. In both plots the shaded area represents the
+   pointwise mean plus and minus two times the standard deviation for each input value
+   (corresponding to the 95% confidence region), for the prior and posterior respectively" (source: http://www.gaussianprocess.org/gpml/).
 
 Linear fitting 
 **************
